@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="这是一个 login 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="../../static/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../../static/assets/i/app-icon72x72@2x.png">
+    <link rel="stylesheet" href="../../static/assets/css/amazeui.min.css" />
+
+    <link rel="stylesheet" href="../../static/assets/css/app.css">
+    <link rel="stylesheet" href="../../static/assets/css/login.css">
+    <script src="../../static/assets/js/jquery.min.js"></script>
+    <title>资晓</title>
+</head>
+<body data-type="login">
+<script src="../../static/assets/js/theme.js"></script>
+<div class="am-g tpl-g">
+    <!-- 风格切换 -->
+    <div class="tpl-skiner">
+        <div class="tpl-skiner-toggle am-icon-cog">
+        </div>
+        <div class="tpl-skiner-content">
+            <div class="tpl-skiner-content-title">
+                选择主题
+            </div>
+            <div class="tpl-skiner-content-bar">
+                <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                <span class="skiner-color skiner-black" data-color="theme-black"></span>
+            </div>
+        </div>
+    </div>
+    <div class="tpl-login">
+        <div class="tpl-login-content">
+            <div class="tpl-login-logo"></div>
+            <form class="am-form tpl-form-line-form" id="doc-vld-msg">
+                <fieldset>
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" data-check="required" data-news="用户名" id="user-name" placeholder="请输入用户名" />
+                    </div>
+                    <div class="am-form-group">
+                        <input type="password" class="tpl-form-input" data-check="required" data-news="密码" id="user-pas" placeholder="请输入密码" />
+                    </div>
+                    <!--<div class="am-form-group">-->
+                        <!--<input type="text" class="tpl-form-input login-yzm" data-check="required" data-news="验证码" id="user-yzm" placeholder="请输入验证码" />-->
+                        <!--<img src="user/next" class="login-yzm-img">-->
+                    <!--</div>-->
+
+                    <div class="am-form-group">
+                        <button type="submit" class="am-btn am-btn-primary am-btn-block tpl-btn-bg-color-success tpl-login-btn" id="loginBtn">提交</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+    <div class="am-modal-dialog">
+        <div class="am-modal-bd">
+
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">确定</span>
+        </div>
+    </div>
+</div>
+<!--../static/amazeui/js-->
+<script src="../../static/assets/js/amazeui.min.js"></script>
+<script src="../../static/assets/js/cookie.min.js"></script>
+<script src="../../static/assets/js/app.js"></script>
+<script src="../../static/assets/js/common.js"></script>
+<script type="text/javascript">
+  (function($, win, doc) {
+    //登录验证
+    $.fn.loginAjax = function(options) {
+      var objThat = this, iSok = false;
+      //自定义规则
+      var defaults = {
+        //验证错误提示信息
+        tips_success: '',
+        tips_required: '不能为空！',
+        tips_mail: '请输入正确的邮箱！',
+        //匹配正则
+        reg_mail: /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/ //验证E-mail
+      };
+
+      if (options) {
+        $.extend(defaults, options);
+      }
+
+      function _onButton() {
+        iSok = true;
+        $(":text, :password").each(function() {
+          var _validate = $(this).attr("data-check"),
+            _name = $(this).attr("data-news");
+          if (_validate) {
+            var arr = _validate.split('||');
+            for (var i = 0, l = arr.length; i < l; i++) {
+              if (!check($(this), arr[i], $(this).val(), _name)) {
+                iSok = false;
+                return false;
+              } else {
+                continue;
+              }
+            }
+          }
+        });
+      }
+
+      if (objThat.is('form')) {
+        objThat.submit(function(e) {
+          _onButton();
+          e.preventDefault();
+          if (iSok === true) {
+            var arr;
+            var num = 0;
+            var data = {
+              username: '',
+              password: '',
+//              captcha: ''
+            };
+            var data2 = [];
+
+            $('.tpl-form-input').each(function(item) {
+              arr = $(this).val();
+              data2[item] = arr;
+            });
+            $.each(data, function(k, v) {
+              data[k] = data2[num];
+              num++;
+            });
+            singleMode.ajaxFun(singleMode.url + 'login', data, 'post', function(json) {
+              if(json['code'] == '1001' || json['code'] == '1000') {
+                var date = new Date();
+                date.setTime(date.getTime() + (120 * 60 * 1000));
+//                $.cookie('JSESSIONID', 'aaaaaaa', {expires: date,path: '/'});
+//                $.cookie('username', 'admin', {expires: date,path: '/'});
+//                $.cookie('id', '11', {expires: date,path: '/'});
+//                $.cookie('JSESSIONID', json['JSESSIONID'], {expires: date,path: '/'});
+//                $.cookie('username', json.username, {expires: date,path: '/'});
+//                $.cookie('id', json.id, {expires: date,path: '/'});
+                $.cookie('code', json['code'], { path: '/'});
+                console.log(json,json.code)
+                window.location.href = '../topic/topic.html?page=1'
+              } else {
+                $('.am-modal-bd').text(json['msg']);
+                $('#my-alert').modal('open');
+//                $('.login-yzm-img').attr('src', singleMode.url + 'user/next?' + Math.random());
+              }
+            });
+          }
+        });
+      }
+
+      var check = function(obj, _match, _val, _name) {
+        switch (_match) {
+          case 'required':
+            return $.trim(_val) !== '' ? showMsg(obj, defaults.tips_success, true) : showMsg(obj, _name + defaults.tips_required, false);
+          // case 'email':
+          //   return chk(_val, defaults.reg_mail) ? showMsg(obj, defaults.tips_success, true) : showMsg(obj, defaults.tips_mail, false);
+          default:
+            return true;
+        }
+      };
+
+      var chk = function(str, reg) {
+        return reg.test(str);
+      };
+
+      var showMsg = function(obj, msg, mark) {
+        if (mark) {
+
+        } else {
+          $('.am-modal-bd').text(msg);
+          $('#my-alert').modal('open');
+        }
+        return mark;
+      };
+    };
+    win.$ = $;
+  })(jQuery, window, document);
+  var loginPage = {
+    init: function () {
+      var _self = this;
+      //更换验证码图片
+      // $('.login-yzm-img').attr('src', singleMode.url + 'user/next?' + Math.random());
+//      $('.login-yzm-img').on('click', function () {
+//        $(this).attr('src', singleMode.url + 'user/next?' + Math.random());
+//      });
+      //登陆
+      $('#doc-vld-msg').loginAjax();
+    }
+  };
+  loginPage.init();
+</script>
+</body>
+</html>

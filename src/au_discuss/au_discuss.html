@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="这是一个 au discuss 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="icon" type="image/png" href="../../static/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../../static/assets/i/app-icon72x72@2x.png">
+    <link rel="stylesheet" href="../../static/assets/css/amazeui.min.css" />
+    <link href="../../static/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/assets/css/app.css">
+    <title>审核评论</title>
+    <style>
+
+        .limt-1{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .limt-2 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .fz-14{
+            font-size: 14px !important;
+            color: #e6e6e6 !important;
+        }
+        .thumbImage{
+            width: 60px;
+            height: auto;
+        }
+        .bgImage{
+            width: 180px;
+            height: auto;
+        }
+
+        .top-container-fluid{
+            padding: 12px 20px 0 !important;
+        }
+
+        .top_form{
+            padding-top: 10px !important;
+        }
+    </style>
+</head>
+<body data-type="widgets" id="body">
+<div class="am-g tpl-g">
+    <!-- 头部 -->
+    <header id="hd">
+        <div class="am-fl tpl-header-logo">
+            <a href="javascript:"><img src="../../static/assets/img/bomBigOld.png" alt=""></a>
+        </div>
+        <div class="tpl-header-fluid">
+            <!-- 侧边切换 -->
+            <div class="am-fl tpl-header-switch-button am-icon-list">
+                <span></span>
+            </div>
+            <!-- 其它功能-->
+            <div class="am-fr tpl-header-navbar"></div>
+        </div>
+    </header>
+    <!-- 风格切换 -->
+    <div class="tpl-skiner">
+        <div class="tpl-skiner-toggle am-icon-cog">
+        </div>
+        <div class="tpl-skiner-content">
+            <div class="tpl-skiner-content-title">
+                选择主题
+            </div>
+            <div class="tpl-skiner-content-bar">
+                <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                <span class="skiner-color skiner-black" data-color="theme-black"></span>
+            </div>
+        </div>
+    </div>
+    <!-- 侧边导航栏 -->
+    <div class="left-sidebar">
+        <!-- 用户信息 -->
+        <div class="tpl-sidebar-user-panel">
+            <div class="tpl-user-panel-slide-toggleable">
+                <div class="tpl-user-panel-profile-picture">
+                    <img src="../../static/assets/img/user04.png" alt="">
+                </div>
+                <span class="user-panel-logged-in-text">
+                <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+                积募小助手
+            </span>
+            </div>
+        </div>
+
+        <!-- 菜单 -->
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-heading">小程序-资晓后台<span class="sidebar-nav-heading-info"></span></li>
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="../banner/banner.html">
+                    <i class="am-icon-wpforms sidebar-nav-link-logo"></i>banner
+                </a>
+            </li>
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="../points/points.html">
+                    <i class="am-icon-wpforms sidebar-nav-link-logo"></i>积分
+                </a>
+            </li>
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="../topic/topic.html">
+                    <i class="am-icon-home sidebar-nav-link-logo"></i>话题
+                </a>
+            </li>
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="../knowtree/knowtree.html?page=1">
+                    <i class="am-icon-wpforms sidebar-nav-link-logo"></i>知识树
+                </a>
+            </li>
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="../switch/switch.html">
+                    <i class="am-icon-calendar  sidebar-nav-link-logo"></i>审核开关
+                </a>
+            </li>
+            <!--<li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用页面</span></li>-->
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="javascript:void(0)" class="sidebar-nav-sub-title active">
+                    <i class="am-icon-table sidebar-nav-link-logo"></i> 审核流程
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico sidebar-nav-sub-ico-rotate"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub" style="display: block;">
+                    <li class="sidebar-nav-link sidebar-nav-linkc">
+                        <!--sub-active-->
+                        <a href="../au_askqsn/au_askqsn.html?page=1">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 审核问题
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link sidebar-nav-linkc">
+                        <a href="../au_answer/au_answer.html?page=1">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 审核答案
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link sidebar-nav-linkc">
+                        <a href="../au_discuss/au_discuss.html?page=1" class="sub-active">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 审核评论
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link sidebar-nav-linkc">
+                        <a href="../re_qsn/re_qsn.html?page=1">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 举报问题
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link sidebar-nav-linkc">
+                        <a href="../re_answer/re_answer.html?page=1" >
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 举报答案
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+        <!--上部-->
+        <div class="container-fluid am-cf top-container-fluid">
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 搜索 <small class="page-header-description">(答案审核）</small></div>
+
+                    <form class="am-form tpl-form-border-form tpl-form-border-br tpl-form-border top_form">
+
+                        <div class="am-form-group am-u-sm-12 am-u-md-12 am-u-lg-6">
+                            <label for="keywordInp" class="am-u-sm-3 am-u-md-3 am-form-label fz-14">关键字 <span class="tpl-form-line-small-title">SEO</span></label>
+                            <div class="am-u-sm-9 am-u-md-9">
+                                <input id="keywordInp" type="text" placeholder="输入SEO关键字">
+                            </div>
+                        </div>
+
+                        <!--<div class="am-form-group">-->
+                            <!--<label for="user-name" class="am-u-sm-3 am-form-label fz-14">标题 <span class="tpl-form-line-small-title">Title</span></label>-->
+                            <!--<div class="am-u-sm-9">-->
+                                <!--<input type="text" class="tpl-form-input" id="user-name" placeholder="请输入标题文字">-->
+                                <!--&lt;!&ndash;<small>请填写标题文字10-20字左右。</small>&ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <div class="am-form-group am-u-sm-12 am-u-md-12 am-u-lg-6">
+                            <label for="timeInpStart" class="am-u-sm-3 am-u-md-3 am-form-label fz-14" >时间 <span class="tpl-form-line-small-title">Time</span></label>
+                            <div class="am-u-sm-4 am-u-md-4">
+                                <input id="timeInpStart" type="text" class="am-form-field tpl-form-no-bg" placeholder="开始时间" data-am-datepicker="" readonly="" value=""> <!--2018-06-01-->
+                                <!--<small>发布时间为必填</small>-->
+                            </div>
+
+                            <label for="timeInpEnd" class="am-u-sm-1 am-u-md-1 am-form-label fz-14" style="color: #999;">至 <span class="tpl-form-line-small-title"></span></label>
+                            <div class="am-u-sm-4 am-u-md-4">
+                                <input id="timeInpEnd" type="text" class="am-form-field tpl-form-no-bg" placeholder="结束时间" data-am-datepicker="" readonly="" value=""> <!--2018-06-01-->
+                                <!--<small>发布时间为必填</small>-->
+                            </div>
+                        </div>
+
+
+                        <div class="am-form-group am-u-sm-12 am-u-md-12 am-u-lg-6">
+                            <label for="runner" class="am-u-sm-3 am-u-md-3 am-form-label fz-14">操作者 <span class="tpl-form-line-small-title">Runner</span></label>
+                            <div class="am-u-sm-9 am-u-md-9">
+                                <input type="text" id="runner" placeholder="请输入操作者">
+                            </div>
+                        </div>
+
+                        <div class="am-form-group am-u-sm-12 am-u-md-12 am-u-lg-6">
+                            <label for="user-phone" class="am-u-sm-3 am-u-md-3 am-form-label fz-14">状态 <span class="tpl-form-line-small-title">Status</span></label>
+                            <div class="am-u-sm-9 am-u-md-9">
+                                <select id="js-selected" data-am-selected="{btnSize: 'sm'}" style="display: none;">
+                                    <option value="2">待审核</option>
+                                    <option value="1">全部</option>
+
+                                    <option value="3">未通过</option>
+                                    <option value="7">已通过</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="am-form-group">
+                            <div class="am-u-sm-9 am-u-sm-push-3">
+                                <button id="header_searBtn" type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success ">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!--内容-->
+        <div class="row-content am-cf">
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <!--style="line-height: 30px;"   am-fl-->
+                            <div class="widget-title am-cf">评论审核列表</div>
+                            <!--<div class="am-u-sm-12 am-u-md-6 am-u-lg-3 am-fl">-->
+                                <!--<div class="am-form-group tpl-table-list-select" style="margin-bottom: 0;">-->
+                                    <!--<select id="js-selected" data-am-selected="{btnSize: 'sm'}">-->
+                                        <!--<option value="0" selected>未发布</option>-->
+                                        <!--<option value="1">已发布</option>-->
+                                        <!--<option value="2">已删除</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                        </div>
+                        <div class="widget-body  am-fr">
+                            <div class="am-u-sm-12" style="min-height: 492px;">
+                                <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
+                                    <thead>
+                                    <tr>
+                                        <!--style="width: 230px;"-->
+                                        <th>答案ID</th>
+                                        <th>问题</th>
+                                        <th>答案</th>
+                                        <th id="nopass">未通过理由</th>
+                                        <th>状态</th>
+                                        <th>删除</th>
+                                        <th>提交者</th>
+                                        <th>提交时间</th>
+                                        <th>操作时间</th>  <!-- 操作时间 -->
+                                        <th>操作者</th>
+                                        <th>功能区</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="calendarTbBody"></tbody>
+                                </table>
+                            </div>
+                            <div class="am-u-lg-12 am-cf" id="pageCurr">
+                                <div class="am-fr" id="page0">
+                                    <ul class="am-pagination tpl-pagination"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--审核驳回-->
+<div class="am-popup" id="popupCancel" style="width: 700px;">
+    <div class="am-popup-inner" style="overflow: scroll;">
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title">操作</h4>
+            <span data-am-modal-close class="am-close">&times;</span>
+        </div>
+        <div class="am-popup-bd">
+            <form class="am-form am-form-horizontal" id="cancelFormUp">
+
+                <div class="am-form-group">
+                    <label for="user-intro" class="am-u-sm-12 am-form-label  am-text-left">请填写退回理由:</label>
+                    <div class="am-u-sm-12 am-margin-top-xs">
+                        <textarea class="" rows="10" id="comment" placeholder=""></textarea>
+                    </div>
+                </div>
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-4 am-u-sm-offset-2" style="margin-bottom: 10px;">
+                        <button type="button" id="sureCal" class="am-btn am-btn-warning">提交</button>
+                    </div>
+
+                    <div class="am-u-sm-4 am-u-sm-offset-2">
+                        <button type="button" id="noCal" class="am-btn am-btn-warning">取消</button>
+                    </div>
+                </div>
+            </form>
+
+            <h4 style="color: #555;font-size: 14px;font-weight: bold;">驳回快捷操作菜单:</h4>
+            <ul class="am-list admin-sidebar-list" id="collapase-nav-1">
+                <li class="am-panel textclick" data-title="垃圾广告信息">
+                    <a data-am-collapse="{parent: '#collapase-nav-1'}" href="#">
+                        <i class="am-margin-left-sm"></i>
+                        垃圾广告信息
+                    </a>
+                </li>
+
+                <li class="am-panel">
+                    <a id="web" data-am-collapse="{parent: '#collapase-nav-1', target: '#web-nav'}">
+                        <i class="am-margin-left-sm"></i> 低质问题或低质回答
+                        <i id="web-icon" class="am-icon-angle-right am-fr am-margin-right"></i>
+                    </a>
+                    <ul class="am-list am-collapse admin-sidebar-sub" id="web-nav">
+                        <li class="textclick" data-title="不构成提问或回答"><a href="#"><i class="am-margin-left-sm"></i> 1.不构成提问或回答 </a></li>
+                        <li class="textclick" data-title="包含主观判断"><a href="#"><i class="am-margin-left-sm"></i> 2.包含主观判断 </a></li>
+                        <li class="textclick" data-title="缺乏可信来源"><a href="#"><i class="am-margin-left-sm"></i> 3.缺乏可信来源 </a></li>
+                        <li class="textclick" data-title="辱骂等人身攻击"><a href="#"><i class="am-margin-left-sm"></i> 4.辱骂等人身攻击 </a></li>
+                        <li class="textclick" data-title="引战争议等非真实问题"><a href="#"><i class="am-margin-left-sm"></i> 5.引战争议等非真实问题 </a></li>
+                        <li class="textclick" data-title="针对具体病情的求医问药"><a href="#"><i class="am-margin-left-sm"></i> 6.针对具体病情的求医问药 </a></li>
+                        <li class="textclick" data-title="寻人、征友、作业等个人任务"><a href="#"><i class="am-margin-left-sm"></i> 7.寻人、征友、作业等个人任务 </a></li>
+                    </ul>
+                </li>
+
+                <li class="am-panel">
+                    <!--//这个target指向的是折叠面板中的id-->
+                    <a id="bg" data-am-collapse="{parent: '#collapase-nav-1', target: '#bg-nav'}">
+                        <i class="am-margin-left-sm"></i> 有害信息
+                        <i id="bg-icon" class="am-icon-angle-right am-fr am-margin-right"></i>
+                    </a>
+                    <!--//id的名字与前面的target是一样的-->
+                    <ul class="am-list am-collapse admin-sidebar-sub" id="bg-nav">
+                        <li class="textclick" data-title="政治敏感"><a href="#"><span class="am-margin-left-sm"></span> 1.政治敏感 </a></li>
+                        <li class="textclick" data-title="色情低俗"><a href="#"><span class="am-margin-left-sm"></span> 2.色情低俗 </a></li>
+                        <li class="textclick" data-title="有人意图自杀或自残"><a href="#"><span class="am-margin-left-sm"></span> 3.有人意图自杀或自残 </a></li>
+                        <li class="textclick" data-title="违法违规"><a href="#"><span class="am-margin-left-sm"></span> 4.违法违规 </a></li>
+                        <li class="textclick" data-title="看相、算命、星盘等迷信活动 "><a href="#"><span class="am-margin-left-sm"></span> 5.看相、算命、星盘等迷信活动 </a></li>
+                    </ul>
+                </li>
+
+                <li class="am-panel">
+                    <a id="database"data-am-collapse="{parent: '#collapase-nav-1', target: '#database-nav'}">
+                        <i class="am-margin-left-sm"></i> 涉嫌侵权
+                        <i id="database-icon" class="am-icon-angle-right am-fr am-margin-right"></i>
+                    </a>
+                    <ul class="am-list am-collapse admin-sidebar-sub" id="database-nav">
+                        <li class="textclick" data-title="个人侵权"><a href="#"><span class="am-margin-left-sm"></span> 1.个人侵权 </a></li>
+                        <li class="textclick" data-title="企业侵权"><a href="#"><span class="am-margin-left-sm"></span> 2.企业侵权</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--操作-->
+<div class="am-popup" id="my-popup" style="width: 700px;">
+    <div class="am-popup-inner" style="overflow: scroll;">
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title">操作</h4>
+            <span data-am-modal-close class="am-close">&times;</span>
+        </div>
+        <div class="am-popup-bd">
+            <form class="am-form am-form-horizontal" id="editFormUp">
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-2 am-form-label">问题</label>
+                    <div class="am-u-sm-10">
+                        <!--data-valid-control="tpcModuleTitle"-->
+                        <textarea disabled  placeholder="请输入问题" class="st-control block" name="ask_content"></textarea>
+                    </div>
+                    <!--<div class="st-error" data-valid-error="tpcModuleTitle"></div>-->
+                </div>
+                <div class="am-form-group">
+                    <label class="am-u-sm-2 am-form-label">答案Id</label>
+                    <div class="am-u-sm-10">
+                        <input type="text" placeholder="请输入话题的id" disabled  class="st-control block" name="id" >
+                    </div>
+                    <!--<div class="st-error" data-valid-error="tpcModuleTid"></div>-->
+                </div>
+
+                <div class="am-form-group">
+                    <label class="am-u-sm-2 am-form-label">答案</label>
+                    <div class="am-u-sm-10">
+                        <!--data-valid-control="tpcModuleTitle"-->
+                        <textarea id="au_anscontent"  placeholder="请输入答案" class="st-control block" name="content"></textarea>
+                    </div>
+                    <!--<div class="st-error" data-valid-error="tpcModuleTitle"></div>-->
+                </div>
+
+                <!--<div class="am-form-group">-->
+                    <!--<label class="am-u-sm-2 am-form-label">答案</label>-->
+                    <!--<div class="am-u-sm-10">-->
+                        <!--<textarea  placeholder="请输入答案" class="st-control block" name="answer" ></textarea>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;<div class="st-error" data-valid-error="tpcModuleDesr"></div>&ndash;&gt;-->
+                <!--</div>-->
+
+
+                <div class="am-form-group">
+                    <div class="am-u-sm-10 am-u-sm-offset-2" style="margin-bottom: 10px;">
+                        <button type="button" id="editSub" class="am-btn am-btn-primary">接受答案</button>
+                    </div>
+
+                    <div class="am-u-sm-10 am-u-sm-offset-2">
+                        <button type="button" id="editCancel" class="am-btn am-btn-warning">拒绝答案</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--updateTime： 操作时间-->
+<!--updataid:  操作者-->
+<!--uid:  提交者-->
+
+<script id="calendarTpl" type="text/x-dot-template">
+    {{? it}}
+    {{ for(var prop in it) { }}
+    <tr class="even gradeC">
+        <td>{{=it[prop].id}}</td>
+        <td class="limt-1" style="max-width: 300px;">
+            {{? it[prop].question && it[prop].question.content}}
+            {{=it[prop].question.content}}
+            {{??}}
+            --
+            {{?}}
+        </td>
+        <td class="limt-2" style="max-width: 400px;max-height: 70px;">{{=it[prop].a_content}}</td>
+        <td>
+            {{? it[prop].comment && it[prop].status=='3'}}
+            {{=it[prop].comment}}
+            {{??}}
+            --
+            {{?}}
+        </td>
+
+        <td>
+            {{=it[prop].a_status}}
+        </td>
+        <td>{{=it[prop].au_deleted}}</td>
+
+        <td>
+            {{? it[prop].userProfile && it[prop].userProfile.nickName }}
+            {{=it[prop].userProfile.nickName}}
+            {{??}}
+            --
+            {{?}}
+        </td>
+        <td>{{=it[prop].createTime}}</td>
+        <td>{{=it[prop].updateTime}}</td>
+        <td>{{=it[prop].updateId}}</td>
+        <td>
+            <div class="tpl-table-black-operation">
+                <!--onclick="topicPage.editGoods(this)"-->
+                <a href="javascript:" data-status="{{=it[prop].status}}" data-deleted="{{=it[prop].deleted}}" data-aid='{{=it[prop].id}}' data-ask_content={{=it[prop].question.content}} data-content='{{=it[prop].a_content}}' id="edit"  class="editOffering" >
+                    <i class="am-icon-pencil"></i> 操作
+                </a>
+            </div>
+        </td>
+    </tr>
+    {{ } }}
+    {{?}}
+</script>
+<script type="text/javascript" data-main="../../main.js" src="../../libs/requireJs/require.js"></script>
+<script src="../../static/assets/js/ckeditor/ckeditor.js"></script>
+
+</body>
+</html>

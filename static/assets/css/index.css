@@ -1,0 +1,17 @@
+#notLg {
+    min-width: 116px;
+    display: inline-block;
+    text-align: right;
+    padding: 0;
+}
+#tcFs {
+    display: inline-block;
+    width: 28px;
+    height: 19px;
+}
+.am-icon-sign-out {
+    display: none;
+}
+.tpl-header-navbar {
+    display: none;
+}

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="这是一个 re_qsn 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="icon" type="image/png" href="../../static/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../../static/assets/i/app-icon72x72@2x.png">
+    <link rel="stylesheet" href="../../static/assets/css/amazeui.min.css" />
+    <link href="../../static/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/assets/css/app.css">
+
+    <title>举报问题</title>
+    <style>
+
+        .top-container-fluid{
+            padding: 12px 20px 0 !important;
+        }
+
+        .top_form{
+            padding-top: 10px !important;
+        }
+
+        .al-toggle-button{
+            appearance: none;
+            -webkit-appearance: none;
+            position: relative;
+            width: 52px;
+            height: 32px;
+            background: #dfdfdf;
+            border-radius: 16px;
+            border: 1px solid #dfdfdf;
+            outline: 0;
+            box-sizing: border-box;
+        }
+        .al-toggle-button:checked{
+            border-color: #04be02;
+            background-color: #04be02;
+        }
+        .al-toggle-button:before, .al-toggle-button:after{
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            transition: -webkit-transform 0.3s;
+            transition: transform 0.3s, -webkit-transform 0.3s;
+            -webkit-transition: -webkit-transform 0.3s;
+        }
+        .al-toggle-button:before{
+            width: 50px;
+            background-color: #fdfdfd;
+        }
+        .al-toggle-button:after{
+            width: 30px;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+        .al-toggle-button:checked:before{
+            transform: scale(0);
+            -webkit-transform: scale(0);
+        }
+        .al-toggle-button:checked:after{
+            transform: translateX(20px);
+            -webkit-transform: translateX(20px);
+        }
+    </style>
+</head>
+<body data-type="widgets" id="body">
+<div class="am-g tpl-g">
+    <!-- 头部 -->
+    <header id="hd">
+        <div class="am-fl tpl-header-logo">
+            <a href="javascript:"><img src="../../static/assets/img/bomBigOld.png" alt=""></a>
+        </div>
+        <div class="tpl-header-fluid">
+            <!-- 侧边切换 -->
+            <div class="am-fl tpl-header-switch-button am-icon-list">
+                <span></span>
+            </div>
+            <!-- 其它功能-->
+            <div class="am-fr tpl-header-navbar"></div>
+        </div>
+    </header>
+    <!-- 风格切换 -->
+    <div class="tpl-skiner">
+        <div class="tpl-skiner-toggle am-icon-cog">
+        </div>
+        <div class="tpl-skiner-content">
+            <div class="tpl-skiner-content-title">
+                选择主题
+            </div>
+            <div class="tpl-skiner-content-bar">
+                <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                <span class="skiner-color skiner-black" data-color="theme-black"></span>
+            </div>
+        </div>
+    </div>
+    <!-- 侧边导航栏 -->
+    <div class="left-sidebar">
+        <!-- 用户信息 -->
+        <div class="tpl-sidebar-user-panel">
+            <div class="tpl-user-panel-slide-toggleable">
+                <div class="tpl-user-panel-profile-picture">
+                    <img src="../../static/assets/img/user04.png" alt="">
+                </div>
+                <span class="user-panel-logged-in-text">
+                <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+                积募小助手
+            </span>
+            </div>
+        </div>
+
+        <!-- 菜单 -->
+        <ul class="sidebar-nav">
+            <li class="sidebar-nav-heading">小程序-资晓后台<span class="sidebar-nav-heading-info"></span></li>
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="../banner/banner.html">
+                    <i class="am-icon-wpforms sidebar-nav-link-logo"></i>banner
+                </a>
+            </li>
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="../banner/banner.html">
+                    <i class="am-icon-wpforms sidebar-nav-link-logo"></i>积分
+                </a>
+            </li>
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="../topic/topic.html">
+                    <i class="am-icon-home sidebar-nav-link-logo"></i>话题
+                </a>
+            </li>
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="../knowtree/knowtree.html?page=1">
+                    <i class="am-icon-wpforms sidebar-nav-link-logo"></i>知识树
+                </a>
+            </li>
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="../switch/switch.html" class="active">
+                    <i class="am-icon-calendar  sidebar-nav-link-logo"></i>审核开关
+                </a>
+            </li>
+            <!--<li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用页面</span></li>-->
+            <li class="sidebar-nav-link sidebar-nav-links">
+                <a href="javascript:void(0)" class="sidebar-nav-sub-title">
+                    <i class="am-icon-table sidebar-nav-link-logo"></i> 审核流程
+                    <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico sidebar-nav-sub-ico-rotate"></span>
+                </a>
+                <ul class="sidebar-nav sidebar-nav-sub" style="display: block;">
+                    <li class="sidebar-nav-link sidebar-nav-linkc">
+                        <!--sub-active-->
+                        <a href="../au_askqsn/au_askqsn.html?page=1">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 审核问题
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link sidebar-nav-linkc">
+                        <a href="../au_answer/au_answer.html?page=1">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 审核答案
+                        </a>
+                    </li>
+                    <!--<li class="sidebar-nav-link sidebar-nav-linkc">-->
+                        <!--<a href="../au_discuss/au_discuss.html?page=1">-->
+                            <!--<span class="am-icon-angle-right sidebar-nav-link-logo"></span> 审核评论-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <li class="sidebar-nav-link sidebar-nav-linkc">
+                        <a href="../re_qsn/re_qsn.html?page=1">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 举报问题
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-link sidebar-nav-linkc">
+                        <a href="../re_answer/re_answer.html?page=1">
+                            <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 举报答案
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+        <!--上部-->
+        <div class="container-fluid am-cf top-container-fluid">
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 审核开关状态
+                        <!--<small class="page-header-description">-->
+                            - <span id="statusInit">未知</span>
+                        <!--</small>-->
+                    </div>
+
+                    <form class="am-form tpl-form-border-form tpl-form-border-br top_form">
+
+                        <div class="am-form-group">
+                            <label for="user-intro" id="labelbox" class="am-u-sm-6 am-form-label">操作</label>
+                            <div class="am-u-sm-6">
+                                <!--<input id="switchCheck" type="checkbox" class="al-toggle-button">-->
+                                <div style="display: none;" id="swiinitBox" class="tpl-switch">
+                                    <input id="switchCheck" type="checkbox" class="ios-switch bigswitch tpl-switch-btn" checked=false>
+                                    <div class="tpl-switch-btn-view">
+                                        <div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--<h3>复选框</h3>-->
+                            <!--<label class="am-checkbox">-->
+                                <!--<input id="switchCheck" type="checkbox" value=""> 没有选中-->
+                            <!--</label>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!--内容-->
+        <!--<div class="row-content am-cf">-->
+            <!--<div class="row">-->
+                <!--<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">-->
+                    <!--<div class="widget am-cf">-->
+                        <!--<div class="widget-head am-cf">-->
+
+                            <!--<div class="widget-title am-cf">举报问题的审核列表</div>-->
+
+                        <!--</div>-->
+                        <!--<div class="widget-body  am-fr">-->
+                            <!--<div class="am-u-sm-12" style="min-height: 492px;"></div>-->
+                               <!---->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</div>
+
+
+<script id="reCalendarTpl" type="text/x-dot-template">
+    {{? it}}
+    {{ for(var prop in it) { }}
+    <tr class="even gradeC">
+        <td>{{=it[prop].id}}</td>
+        <td class="limt-2" style="max-width: 400px;">
+            {{? it[prop].question}}
+            {{? it[prop].question.content}}
+            {{=it[prop].question.content}}
+            {{?}}
+            {{?}}
+        </td>
+        <td>{{=it[prop].re_complain}}</td>
+        <td>
+            {{? it[prop].comment && it[prop].flowStatus=='3'}}
+            {{=it[prop].comment}}
+            {{??}}
+            --
+            {{?}}
+        </td>
+        <td>{{=it[prop].re_status}}</td>
+        <td>{{=it[prop].re_isclose}}</td>
+
+        <td>
+            {{? it[prop].userProfile && it[prop].userProfile.nickName }}
+            {{=it[prop].userProfile.nickName}}
+            {{??}}
+            --
+            {{?}}
+        </td>
+
+        <td>{{=it[prop].createTime}}</td>
+        <td>{{=it[prop].updateTime}}</td>
+
+        <td>
+            {{? it[prop].handler}}
+            {{=it[prop].handler}}
+            {{??}}
+            未知
+            {{?}}
+        </td>
+
+        <td>
+            <div class="tpl-table-black-operation">
+                <!--onclick="topicPage.editGoods(this)"-->
+                <a href="javascript:" data-flowStatus="{{=it[prop].flowStatus}}" data-isClose="{{=it[prop].isClose}}" data-cpnid="{{=it[prop].id}}" data-qid='{{=it[prop].questionId}}' data-content='{{=it[prop].question.content}}' id="edit"  class="editOffering" >
+                    <i class="am-icon-pencil"></i> 操作
+                </a>
+            </div>
+        </td>
+    </tr>
+    {{ } }}
+    {{?}}
+</script>
+<script type="text/javascript" data-main="../../main.js" src="../../libs/requireJs/require.js"></script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="这是一个 addqsn-添加问题 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="icon" type="image/png" href="../../static/assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../../static/assets/i/app-icon72x72@2x.png">
+    <link rel="stylesheet" href="../../static/assets/css/amazeui.min.css" />
+    <link href="../../static/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/assets/css/app.css">
+    <title>话题-添加问题</title>
+    <style>
+
+        #gettitle div{
+            display: inline-block;
+        }
+
+        .asknum{
+            color: yellowgreen;display: inline-block;margin-right: 8px;
+        }
+
+        .askTitle{
+            padding-top: 4px;
+        }
+
+        .answer{
+            padding-top: 4px;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            color: #aaa;
+        }
+
+        .b_bom{
+            border-bottom: 2px solid #aaa;
+        }
+
+        #cor-g{
+            color: #ea6e0c;
+        }
+
+
+    </style>
+</head>
+<body data-type="widgets" id="body">
+<div class="am-g tpl-g">
+    <!-- 头部 -->
+    <header id="hd">
+        <div class="am-fl tpl-header-logo">
+            <a href="javascript:"><img src="../../static/assets/img/bomBigOld.png" alt=""></a>
+        </div>
+        <div class="tpl-header-fluid">
+            <!-- 侧边切换 -->
+            <div class="am-fl tpl-header-switch-button am-icon-list">
+                <span></span>
+            </div>
+            <!-- 搜索 -->
+            <!--<div class="am-fl tpl-header-search">-->
+            <!--<form class="tpl-header-search-form" action="javascript:;">-->
+            <!--<button class="tpl-header-search-btn am-icon-search"></button>-->
+            <!--<input class="tpl-header-search-box" type="text" placeholder="搜索内容...">-->
+            <!--</form>-->
+            <!--</div>-->
+            <!-- 其它功能-->
+            <div class="am-fr tpl-header-navbar"></div>
+        </div>
+    </header>
+    <!-- 风格切换 -->
+    <div class="tpl-skiner">
+        <div class="tpl-skiner-toggle am-icon-cog">
+        </div>
+        <div class="tpl-skiner-content">
+            <div class="tpl-skiner-content-title">
+                选择主题
+            </div>
+            <div class="tpl-skiner-content-bar">
+                <span class="skiner-color skiner-white" data-color="theme-white"></span>
+                <span class="skiner-color skiner-black" data-color="theme-black"></span>
+            </div>
+        </div>
+    </div>
+    <!-- 侧边导航栏 -->
+    <div class="left-sidebar">
+    <!-- 用户信息 -->
+    <div class="tpl-sidebar-user-panel">
+        <div class="tpl-user-panel-slide-toggleable">
+            <div class="tpl-user-panel-profile-picture">
+                <img src="../../static/assets/img/user04.png" alt="">
+            </div>
+            <span class="user-panel-logged-in-text">
+                <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+                积募小助手
+            </span>
+        </div>
+    </div>
+
+    <!-- 菜单 -->
+    <ul class="sidebar-nav">
+        <li class="sidebar-nav-heading">小程序-资晓后台<span class="sidebar-nav-heading-info"></span></li>
+        <li class="sidebar-nav-link sidebar-nav-links">
+            <a href="../banner/banner.html">
+                <i class="am-icon-wpforms sidebar-nav-link-logo"></i>banner
+            </a>
+        </li>
+        <li class="sidebar-nav-link sidebar-nav-links">
+            <a href="../points/points.html">
+                <i class="am-icon-wpforms sidebar-nav-link-logo"></i>积分
+            </a>
+        </li>
+        <li class="sidebar-nav-link sidebar-nav-links">
+            <a href="../topic/topic.html" class="active">
+                <i class="am-icon-home sidebar-nav-link-logo"></i>话题
+            </a>
+        </li>
+        <li class="sidebar-nav-link sidebar-nav-links">
+            <a href="../knowtree/knowtree.html?page=1">
+                <i class="am-icon-wpforms sidebar-nav-link-logo"></i>知识树
+            </a>
+        </li>
+        <li class="sidebar-nav-link sidebar-nav-links">
+            <a href="../switch/switch.html">
+                <i class="am-icon-calendar  sidebar-nav-link-logo"></i>审核开关
+            </a>
+        </li>
+        <!--<li class="sidebar-nav-heading">Page<span class="sidebar-nav-heading-info"> 常用页面</span></li>-->
+        <li class="sidebar-nav-link sidebar-nav-links">
+            <a href="javascript:void(0)" class="sidebar-nav-sub-title">
+                <i class="am-icon-table sidebar-nav-link-logo"></i> 审核流程
+                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico sidebar-nav-sub-ico-rotate"></span>
+            </a>
+            <ul class="sidebar-nav sidebar-nav-sub" style="display: block;">
+                <li class="sidebar-nav-link sidebar-nav-linkc">
+                    <!--sub-active-->
+                    <a href="../au_askqsn/au_askqsn.html?page=1" class="">
+                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 审核问题
+                    </a>
+                </li>
+                <li class="sidebar-nav-link sidebar-nav-linkc">
+                    <a href="../au_answer/au_answer.html?page=1">
+                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 审核答案
+                    </a>
+                </li>
+                <!--<li class="sidebar-nav-link sidebar-nav-linkc">-->
+                    <!--<a href="../au_discuss/au_discuss.html?page=1">-->
+                        <!--<span class="am-icon-angle-right sidebar-nav-link-logo"></span> 审核评论-->
+                    <!--</a>-->
+                <!--</li>-->
+                <li class="sidebar-nav-link sidebar-nav-linkc">
+                    <a href="../re_qsn/re_qsn.html?page=1">
+                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 举报问题
+                    </a>
+                </li>
+                <li class="sidebar-nav-link sidebar-nav-linkc">
+                    <a href="../re_answer/re_answer.html?page=1">
+                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 举报答案
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+    <!-- 内容区域 -->
+    <div class="tpl-content-wrapper">
+        <div class="container-fluid am-cf">
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-9">
+                    <div class="page-header-heading"><span class="am-icon-home page-header-heading-icon"></span> 话题 <small></small></div>
+                    <p class="page-header-description">话题下的问题、答案回显，（话题入口）</p>
+                    <a href="../topic/topic.html" class="am-btn am-btn-primary">返回</a>
+                </div>
+            </div>
+        </div>
+        <div class="row-content am-cf">
+            <div class="row">
+                <div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div id="toptitle" class="widget-title  am-cf"></div>
+                        </div>
+                        <div class="widget-body  am-fr">
+                            <div class="am-u-sm-12" style="min-height: 455px;">
+                                <div id="calendarTbBody1"></div>
+                            </div>
+                            <div class="am-u-lg-12 am-cf">
+                                <div class="am-fr" id="page1">
+                                    <ul class="am-pagination tpl-pagination"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--第二模块-->
+
+                <div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title  am-cf">问题关键字</div>
+                        </div>
+                        <div class="widget-body  am-fr">
+                            <div class="am-u-sm-12" style="min-height: 455px;">
+                                <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
+                                    <input id="ddVale" placeholder="请输入关键字" type="text" class="am-form-field ">
+                                    <span class="am-input-group-btn">
+                                        <button id="selectDd" class="am-btn  am-btn-default am-btn-success tpl-table-list-field am-icon-search" type="button"></button>
+                                    </span>
+                                </div>
+                                <div id="calendarTbBody2"></div>
+                            </div>
+                            <div class="am-u-lg-12 am-cf" id="page2Curr">
+                                <!--<div class="am-fr" id="page2">-->
+                                    <!--<ul class="am-pagination tpl-pagination"></ul>-->
+                                <!--</div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--第三模块-->
+                <div class="am-u-sm-4 am-u-md-4 am-u-lg-4">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title  am-cf">答案list</div>
+                        </div>
+                        <div class="widget-body  am-fr">
+                            <div class="am-u-sm-12" style="min-height: 455px;">
+                                <div id="calendarTbBody3"></div>
+
+                            </div>
+                            <div class="am-u-lg-12 am-cf">
+                                <div class="am-fr" id="page3">
+                                    <ul class="am-pagination tpl-pagination"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+    <div class="am-modal-dialog">
+        <div class="am-modal-bd">
+            恭喜，问题添加成功！
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">确定</span>
+        </div>
+    </div>
+</div>
+
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alertdel">
+    <div class="am-modal-dialog">
+        <div class="am-modal-bd">
+            删除成功！
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">确定</span>
+        </div>
+    </div>
+</div>
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirmdel">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">提示</div>
+        <div class="am-modal-bd">
+            确定删除该回答?
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">提示</div>
+        <div class="am-modal-bd">
+            是否添加到话题<span id="gettitle"></span>?
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+            <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+        </div>
+    </div>
+</div>
+
+<!--title-->
+<script id="toptitle1" type="text/x-dot-template">
+    <div>{{=it}}</div>
+</script>
+<!--一-->
+
+<script id="calendarTpl" type="text/x-dot-template">
+    {{ for(var prop in it) { }}
+    <div class="even gradeC b_bom">
+        <!--{{=Number([prop])+1}}-->
+        <div class="askTitle"><span class="asknum">{{=it[prop].id}}</span>{{=it[prop].content}}</div>
+        <div class="answer"><span>答：</span> {{=it[prop].answer.content}}</div>
+        <div class="am-form-group">
+            <div class="am-btn-toolbar">
+                <div class="am-btn-group am-btn-group-xs">
+                    <button type="button" data-aid={{=it[prop].answer.id}} class="am-btn am-btn-default am-btn-secondary upAns"><span class="am-icon-save">上移</span></button>
+                    <button type="button" data-aid={{=it[prop].answer.id}} class="am-btn am-btn-default am-btn-warning downAns"><span class="am-icon-archive"></span>下移</button>
+                    <button type="button" data-aid={{=it[prop].answer.id}} class="am-btn am-btn-default am-btn-danger delAns"><span class="am-icon-trash-o delAns"></span> 删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ } }}
+</script>
+
+<!--二-->
+<script id="calendarTp2" type="text/x-dot-template">
+    {{ for(var prop in it) { }}
+    <div class="even gradeC">
+        <div data-id="{{=it[prop].id}}" class="askTitle askTitle2"><span class="asknum">{{=it[prop].id}}</span><span class="ask_content">{{=it[prop].content}}</span></div>
+    </div>
+    {{ } }}
+</script>
+
+<!--三-->
+<script id="calendarTp3" type="text/x-dot-template">
+    {{ for(var prop in it) { }}
+    <div class="even gradeC b_bom">
+        <!--<div data-id="{{=it[prop].id}}" class="askTitle askTitle2"><span style="color: yellowgreen;display: inline-block;margin-right: 8px;">{{=Number([prop])+1}}</span>{{=it[prop].content}}</div>-->
+        <div class="answer"><span>回答{{=Number([prop])+1}}：</span> {{=it[prop].content}}</div>
+        <div class="am-form-group">
+            <div class="am-btn-toolbar">
+                <div class="am-btn-group am-btn-group-xs">
+                    <button type="button" data-id="{{=it[prop].id}}"  class="am-btn am-btn-default am-btn-success addAns"><span class="am-icon-plus"></span> 新增</button>
+                    <!--<button type="button" class="am-btn am-btn-default am-btn-secondary"><span class="am-icon-save"></span> 保存</button>-->
+                    <!--<button type="button" class="am-btn am-btn-default am-btn-warning "><span class="am-icon-archive"></span>添加</button>-->
+                    <!--<button type="button" class="am-btn am-btn-default am-btn-danger"><span class="am-icon-trash-o"></span> 删除</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ } }}
+</script>
+<script type="text/javascript" data-main="../../main.js" src="../../libs/requireJs/require.js"></script>
+</body>
+</html>
